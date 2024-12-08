@@ -1,0 +1,14 @@
+{
+    "video_resolution": [
+        640,
+        480
+    ],
+    "sensitivity": 15360,
+    "schedule_times": {
+        "arm": 21,
+        "disarm": 7
+    },
+    "current_camera": 0,
+    "show_motion": false,
+    "preview_mode": false
+}

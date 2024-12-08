@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "clemson-security-camera",
+  "private_key_id": "67a18c586e6beeda426de3f2b6c37956372c7a6e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC9YYpGB6NKx4cZ\nwT96uxogh8QjwYCPcBL5/H0divGGvDJ0QXbPnih8nMm5v+q6FhUFGdSlC5j3gJLm\n3KAZDnBXqG//rfSh1hjd0AD9wtAoKkuQBkT9pnZfF4qGi4i3toPIJV8/U/S45lRi\n5BPYLZo4VY0p1dkf6PrauqscO8O1Gxm24SeF07fFzT9ITT3AeFsAYSIba67IdlBW\nIyd6NL5wmgdgvtJWRyN5VIlMPxiyIhh1bwAh0hSvk6idJ/bUEs8eiRj6en5BYYQY\nDlkUVCiinqJG9ZAqM48NToTAio30fxStgOFjBj8H788oBiQZ2Y3+rB+qQwnHX2ua\nMqPRE81FAgMBAAECggEAK3r1UwJGarEYUuC0SSKji0P4k6gF8wjNhpFCjZGcxe04\nHUp5c44RqBicVRYb14kh3texI4qf3nVp5PDTHiWbQ/jza+29zJlaALVUwO5lOc+K\nJUFXPjBlnYwLXTw0kc9o/r8b2O+W8IvLZKAOcVP5BEWaITiMvv+P9r+kcRlEo/P0\n6ZZKxty9aRzzAD/tnH15rVSUcvm3BDK+9HxFMdd1jGtbqLXJ4YRz1ufYbpIYg6O+\nyQS1k7Ey6U3rqvErICoDI8Ml35LtwBXTMpW1wW4gq2Lk0vSa5Z3EFUs/mJGp6Kmp\nAXDbonNrXchBS95UHn/A4IjOusAQyrYJJcrYMBHU6QKBgQD2d6QE+ZQa2K53jo0z\nuDjWy6cpAJPdn2cgCbu4tnxy3MMBqtKaQmPAEpvVNxlL3mVBA9b6VMslwOD34JYk\nIcf8F0HQdPDBdxnHgU5TZd4FPhsHlU/AXz4guybtOxnzowTJvABEFmXnbAE2pWSI\nkmcE+f6KEu6sX+P/OG/IPqnl3QKBgQDEtKrwZcNq0tYnz50ns35BcYh4rBTZb0ux\n8D7tuy5BxW2CyQaTbV68QM7F3QCOSQM0/0vZ2QrjIiZuLnulBIZ+l/QLxmBKfO9X\nfKGn0sdx2uTXl7Ln/Jfemfat9gpLwJJEL+6ZDJYI+iWxbczaJ6zvyMYue7UG8u7g\nRwhp/7NSiQKBgGQQzxb1/Zuovazsw4dsFCehJ40OHvqr7UKksQKdlIlN+B6FLFxU\n+ArTg1FdvXeAI7vxwyZ/prr9RFlfZZXl4TwIdUAdOmJR6LWHWjWh9jJKtM6vYGHK\nSX8gfP10MWUpmpgNLE54iYcb4qI9JEQOrKTomt+UMDLr+7VzRG8YggJBAoGAeYaI\n6TZlsdSKHFRm6kU5ZmMnBi6CPwdEg61Co4r1/ApmKtvZZTG3yqRbWuC73Cv9gDuN\neAxgbo0FoyKynvOZyBJG4xNvH/XpxGoqUU2mjI/Iu+1ryWlDxnHmdflAySYy90+J\noCKneupYaTLF0a2baRToY4VoBOAHdqZL63jfJ8kCgYEAmXXwv9syqFiZk4KF1FoH\nyPnOrMujaRBihhRHwE96W2lY/+uD0qpBbJqoDwHrl2oWbWBDAvlJlclwEaOW8mPE\nETaisci2CdeRhdEXPM62qbKLlXf/qL6P4vlgEpywn0uTXIqbfnSE1qg32nV8suqt\n3ixyuZbbDj9A+0vsjiVpR1w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "clemson-camera-api@clemson-security-camera.iam.gserviceaccount.com",
+  "client_id": "108686822968657747310",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/clemson-camera-api%40clemson-security-camera.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
