@@ -103,43 +103,96 @@ def load_settings():
 
 def check_dependencies():
     """Check and install required dependencies"""
-    import sys
-    import subprocess
-    import pkg_resources
+    # Packages that are part of standard library and don't need installation
+    STANDARD_LIBRARY = {
+        # main.py standard libraries
+        'tkinter', 'asyncio', 'json', 'datetime', 'threading', 'socket', 'os', 'sys', 'subprocess',
+        
+        # mail.py standard libraries
+        'smtplib', 'email',
+        
+        # Other standard libraries
+        'pkg_resources'
+    }
+
+    # Package name mappings (pip name -> import name)
+    PACKAGE_MAPPINGS = {
+        'opencv-python': 'cv2',
+        'pillow': 'PIL',
+        'discord.py': 'discord',
+        'google-api-python-client': 'googleapiclient',
+        'google-auth': 'google.auth',
+        'google-auth-httplib2': 'google_auth_httplib2',
+        'google-auth-oauthlib': 'google_auth_oauthlib'
+    }
+
+    # Define required packages with their versions
+    REQUIRED_PACKAGES = [
+        # main.py requirements
+        'opencv-python>=4.5.0',
+        'imutils>=0.5.4',
+        'pygame>=2.0.0',
+        'pillow>=8.0.0',
+        
+        # bot.py requirements
+        'discord.py>=2.0.0',
+        
+        # drive_utils.py requirements (also used by mail.py)
+        'google-api-python-client>=2.0.0',
+        'google-auth>=2.0.0',
+        'google-auth-httplib2>=0.1.0',
+        'google-auth-oauthlib>=0.5.0'
+    ]
+
+    def get_package_import_name(package):
+        """Get the import name for a package"""
+        base_name = package.split('>=')[0].lower()
+        return PACKAGE_MAPPINGS.get(base_name, base_name.replace('-', '_'))
+
+    def is_package_installed(package_name):
+        """Check if a package is installed"""
+        try:
+            pkg_resources.get_distribution(package_name.split('>=')[0])
+            return True
+        except pkg_resources.DistributionNotFound:
+            return False
 
     def install_package(package):
         try:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-            print(f"Successfully installed {package}")
+            if not is_package_installed(package):
+                subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+                print(f"Successfully installed {package}")
+            else:
+                print(f"Package already installed: {package}")
+            return True
         except subprocess.CalledProcessError as e:
             print(f"Error installing {package}: {e}")
             return False
-        return True
 
     try:
-        # Read requirements from file
-        with open('requirements.txt', 'r') as f:
-            requirements = [line.strip() for line in f if line.strip() and not line.startswith('#')]
-
-        # Check each requirement
-        installed_packages = {pkg.key: pkg.version for pkg in pkg_resources.working_set}
+        # Check each package
+        print("Checking dependencies...")
         missing_packages = []
 
-        for requirement in requirements:
-            package_name = requirement.split('>=')[0]
-            if package_name.lower() not in installed_packages:
+        for requirement in REQUIRED_PACKAGES:
+            if is_package_installed(requirement):
+                print(f"✓ {requirement}")
+            elif requirement.split('>=')[0].lower() in STANDARD_LIBRARY:
+                print(f"✓ {requirement} (standard library)")
+            else:
+                print(f"✗ Missing: {requirement}")
                 missing_packages.append(requirement)
 
-        # Install missing packages
+        # Only install if there are missing packages
         if missing_packages:
-            print("Installing missing dependencies...")
+            print("\nInstalling missing packages...")
             for package in missing_packages:
                 if not install_package(package):
                     print(f"Failed to install {package}. Please install it manually.")
                     sys.exit(1)
-            print("All dependencies installed successfully!")
+            print("All missing packages installed successfully!")
         else:
-            print("All required dependencies are already installed!")
+            print("\nAll required packages are already installed!")
 
     except Exception as e:
         print(f"Error checking dependencies: {e}")
@@ -654,6 +707,7 @@ def initialize_gui():
     root = tk.Tk()
     root.title("Motion Detection System")
     root.configure(bg="#1e1e1e")
+    root.protocol("WM_DELETE_WINDOW", quit_program)
     
     style = ttk.Style()
     style.theme_use("clam")
